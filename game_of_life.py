@@ -15,10 +15,10 @@ def getGrid(fname):
     return array2D
 
 def printGrid(generationNumber, array2D):
+    if generationNumber != 0:
+        print("Generation:", generationNumber)
     for line in array2D:
         print (''.join(line))
-
-    print ("Generation: ", generationNumber)
 
 def computeGeneration(array2D):
     X = len(array2D)
@@ -58,7 +58,8 @@ def nei(x,y,array,height,width):
 
 if __name__== "__main__":
     grid = getGrid(sys.argv[1])
-
+    print ("Zygote")
+    printGrid(0, grid)
     for i in range(10):
-        printGrid(i + 1, grid)
         grid = computeGeneration(grid)
+        printGrid(i + 1, grid)
